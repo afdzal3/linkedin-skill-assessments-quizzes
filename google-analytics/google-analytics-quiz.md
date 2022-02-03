@@ -160,7 +160,7 @@
 - [ ] Hit: Download // Event: Sample Tone // Content: Music
 - [ ] Category: Music // Action: Download // Label: Sample Tone
 - [ ] Category: Download // Event: Music // Label: Sample Tone
-- [ ] Hit: Music // Event: Download //Content: Sample Tone
+- [x] Hit: Music // Event: Download //Content: Sample Tone
 
 #### Q23. You want to classify people who join your newsletter with a custom dimension for "Newsletter Subscribers." What is the appropriate scope to apply to this custom dimension?
 
@@ -220,6 +220,8 @@
 
 #### Q31. What is this report an example of?
 
+![Tree map](https://i.imgur.com/CJFjxxD.png)
+
 - [ ] cohort analysis
 - [ ] funnel visualization
 - [ ] user flow
@@ -256,9 +258,9 @@
 #### Q36. What is a best practice after launching a major change to your home page?
 
 - [ ] Create a new filter.
-- [ ] Create an annotation.
+- [x] Create an annotation.
 - [ ] Create a new view.
-- [x] Create a new property.
+- [ ] Create a new property.
 
 #### Q37. You want to enable a destination goal for a URL that appends query string parameters with each submission—for example, `/thanks?uid=123`. Which match types would work?
 
@@ -525,3 +527,52 @@
 - [ ] custom dimensions
 - [x] calculated metrics
 - [ ] custom metrics
+
+#### Q74. You are managing analytics for a recipe website that has the following categories: Appetizers, Main Dishes, and Desserts. What do you create in order to compare aggregated data of all recipes in the Appetizer category vs. all recipes in the Desserts category?
+
+- [ ] custom channels
+- [ ] advanced filters
+- [x] content grouping <= [not sure](https://support.google.com/analytics/answer/2853423?hl=en)
+- [ ] custom segments
+
+#### Q75. How would you add a secondary dimension to a report?
+
+- [ ] from the Insights panel
+- [x] from the Secondary dimension menu
+- [ ] all of these answers
+- [ ] with a table filter
+
+#### Q76. You operate a website that has a three-step sign-up process. However, each step of the sign-up process loads at the same URL. If you wanted to assign a unique URL to each step and track it within Google Analytics as a pageview, what would you do?
+
+- [ ] Use virtual pageviews.
+- [ ] Configure a campaign URL.
+- [ ] Use the preview tag.
+- [x] Use event tracking.
+
+#### Q77. It is a best practice to always have one of what kind of view?
+
+- [ ] property
+- [ ] custom
+- [ ] segmented
+- [x] unfiltered
+
+#### Q78. You send an email including a link to your website without any UTM parameters. A visitor clicks that link from a secured (https) email platform such as Gmail. What source is shown for that traffic?
+
+- [ ] Email
+- [x] Referral
+- [ ] (other)
+- [ ] Direct
+
+#### Q79. Which type of goal allows you to specifiy a funnel?
+
+- [ ] Destination
+- [ ] Duration
+- [ ] Pages/Screens per Session
+- [ ] Event
+
+#### Q80. What is an interaction that causes data to be sent to Analytics?
+
+- [ ] dimension
+- [ ] metric
+- [x] hit
+- [ ] tag

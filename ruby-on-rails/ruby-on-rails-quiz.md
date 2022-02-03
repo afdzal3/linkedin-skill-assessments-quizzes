@@ -185,9 +185,9 @@ end
 
 #### Q22. How do you add Ruby code inside Rails views and have its result outputted in the HTML file?
 
-- [x] Create an embedded Ruby file (.html.erb) and surround the Ruby code with `<% %>`.
+- [ ] Create an embedded Ruby file (.html.erb) and surround the Ruby code with `<% %>`.
 - [ ] Insert Ruby code inside standard HTML files and surround it with `<% %>`. The web server will handle the rest.
-- [ ] Create an embedded Ruby file (.html.erb) and surround the Ruby code with `<%= %>`.
+- [x] Create an embedded Ruby file (.html.erb) and surround the Ruby code with `<%= %>`. [Reference](https://guides.rubyonrails.org/action_view_overview.html#erb)
 - [ ] Put the code in an .rb file and include it in a `<link>` tag of an HTML file.
 
 #### Q23. How would you render a view using a different layout in an ERB HTML view?
@@ -378,8 +378,8 @@ before_destroy :notify_admin_users, if: ->(model) { model.is_admin }
 
 - [ ] `Product.where("name = " << @keyword)`
 - [ ] `Product.where("name = " + h(@keyword))`
-- [ ] `Product.where("name = ?", @keyword)`
-- [x] `Product.where("name = #{@keyword}")`
+- [x] `Product.where("name = ?", @keyword)` [Reference](https://guides.rubyonrails.org/active_record_querying.html#pure-string-conditions)
+- [ ] `Product.where("name = #{@keyword}")`
 
 #### Q39. You made a spelling mistake while creating a table for bank accounts. Which code would you expect to see in a migration to fix the error?
 
@@ -646,3 +646,154 @@ link_to('Link', {controller: 'products', action: 'index', page: 3})
 - [ ] match "products/index", to: "products#index", via: :get
 - [ ] root "products/index"
 - [ ] get "products/index"
+
+#### Q51. Given a table of blog_posts and a related table of comments (comments made on each blog post), which ActiveRecord query will retrieve all blog posts with comments created during @range?
+
+- [x] BlogPost.joins (:comments).where(comments: {created_at: @range})
+- [ ] BlogPost.where(['comments.created_at', @range])
+- [ ] BlogPost.preload ("comments.created_at").where(created_at: @range)
+- [ ] BlogPost.includes (:comments).where('comments.created_at' => @range)
+
+#### Q52. Given this Category model with an attribute for "name", what code would fill in the blank so that it sets saved_name to a string that is the category name that existed before the name was changed?
+
+```ruby
+class Category < ActiveRecord::Base
+  # has a database column for :name
+end
+
+category = Category.first
+category.name = 'News'
+saved_name = _____
+```
+
+- [ ] category.name_was
+- [ ] category.saved(:name)
+- [x] category.changes[:name]
+- [ ] category.name_changed?
+
+#### Q53. Given two models, what is the issue with the query used to fetch them?
+
+```ruby
+class LineItem < ApplicationRecord
+end
+
+class Order < ApplicationRecord
+  has_many :line_items
+end
+
+Order.limit(3).each { |order| puts order.line_items }
+```
+
+- [ ] This query will result in extensive caching, and you will have to then deal with caching issues.
+- [x] This query will result in the N+1 query issue. Three orders will result in four queries.
+- [ ] This query will result in the 1 query issue. Three orders will result in one query.
+- [ ] There are no issues with this query, and you are correctly limiting the number of Order models that will be loaded.
+
+#### Q54. Which choice is an _incorrect_ way to render a partial?
+
+- [ ] `<%= render(:partial => 'shared/product') %>`
+- [ ] `<%= render('shared/product', :collection => @products) %>`
+- [x] `<%= render(template: 'shared/product', with: @products) %>`
+- [ ] `<%= render('shared/product', locals: { product: @product }) %>`
+
+#### Q55. Which code sample will skip running the `login_required` "before" filter on the `get_posts` controller action?
+
+- [ ] `before_action :login_required, skip: [:get_posts]`
+- [ ] `skip_before_action :login_required, except: [:get_posts]`
+- [x] `skip_before_action :login_required, only: [:get_posts]`
+- [ ] `skip_action before: :login_required, only: [:get_posts]`
+
+#### Q56. Within a Rails model with a `cache_key` method, which code snippet will expire the cache whenever the model is updated?
+
+- [ ] A
+
+```ruby
+after_update_commit do
+destroy
+end
+```
+
+- [ ] B
+
+```ruby
+after_destroy do
+Rails.cache.delete(cache_key)
+end
+```
+
+- [ ] C
+
+```ruby
+after_update_commit do
+Rails.cache.delete(cache_key)
+end
+```
+
+- [x] D
+
+```ruby
+after_update_commit do
+Rails.cache.destroy(cache_key)
+end
+```
+
+#### Q57. After this migration has been executed, which statement would be true?
+
+```ruby
+class CreateGalleries < ActiveRecord::Migration
+  def change
+    create_table :galleries do |t|
+      t.string :name, :bg_color
+      t.integer :position
+      t.boolean :visible, default: false
+      t.timestamps
+    end
+  end
+end
+```
+
+- [ ] The galleries table will have no primary key.
+- [x] The galleries table will include a column named "updated_at".
+- [ ] The galleries table will contain exactly seven columns.
+- [ ] The galleries table will have an index on the position column.
+
+#### Q58. Which code would you add to return a 404 to the API caller if the user is not found in the database?
+
+```ruby
+class UsersController < ApplicationController
+  def show
+    @user = User.find(params[:id])
+    render json: @user, status: :ok,
+    # Missing code
+end
+```
+
+- [ ] A
+
+```ruby
+rescue => e
+  logger.info e
+end
+```
+
+- [x] B
+
+```ruby
+rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+```
+
+- [ ] C
+
+```ruby
+rescue ActiveRecord::RecordNotFound
+  render json: { message: 'User not found' }, status: :not_found
+end
+```
+
+- [ ] D
+
+```ruby
+raise ActiveRecord::RecordNotFound
+  render json: { message: 'User not found' }, status: :user_not_found
+end
+```

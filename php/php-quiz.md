@@ -5,9 +5,11 @@
 `echo 76 <=> '76 trombones';`
 
 - [ ] 1
-- [x] -1
+- [ ] -1
 - [ ] a parser error
-- [ ] 0
+- [x] 0
+
+**_Both sides of the "spaceship" are equal, so the answer is 0. PHP will convert '76 trombones' to 76 in this context, as the string starts with '76'. Try it!_**
 
 ##### Q2. Which is the most secure way to avoid storing a password in clear text in database?
 
@@ -147,7 +149,7 @@ if ($email === false) {
 
 - [x] all of these answers
 - [ ] #This is a comment
-- [ ] /_ This is a comment _/
+- [ ] `/* This is a comment */`
 - [ ] // This is a comment
 
 ##### Q17. PHP supports multiple types of loops. If you wanted to loop through a block of code if and as long a specified condition is true, which type of loop would you use?
@@ -209,7 +211,7 @@ if ($email === false) {
   4 echo 'Winter is almost over!'."\n";
   5 }
   6 }
-  7 \$userclass = new MyClass;
+  7 $userclass = new MyClass;
   ```
 - [ ]
   ```php
@@ -229,7 +231,7 @@ if ($email === false) {
   4 echo 'Winter is almost over!.."\n";
   5 }
   6 }
-  7 \$userclass = new MyClass;
+  7 $userclass = new MyClass;
   ```
 - [ ]
   ```php
@@ -432,10 +434,10 @@ echo "No, mail is not set";
 
 ##### Q43. Assuming that `$first_name` and `$family_name` are valid strings, which statement is invalid?
 
-- [ ] `echo $first_name. ' '. $familiy_name;`
-- [x] `print $first_name, ' ', $familiy_name;`
-- [ ] `print $first_name. ' '. $familiy_name;`
-- [ ] `echo $first_name, ' ', $familiy_name;`
+- [ ] `echo $first_name. ' '. $family_name;`
+- [x] `print $first_name, ' ', $family_name;`
+- [ ] `print $first_name. ' '. $family_name;`
+- [ ] `echo $first_name, ' ', $family_name;`
 
 ##### Q44. Which code snippet demonstrates encapsulation?
 
@@ -495,32 +497,25 @@ echo "No, mail is not set";
 ```
 
 - [ ]
-
-```php
-          $books = simplexml_load_string('books.xml');
-          echo $books->book[0]->categories->category[1];
-```
-
+  ```php
+  $books = simplexml_load_string('books.xml');
+  echo $books->book[0]->categories->category[1];
+  ```
 - [x]
-
-```php
-          $books = simplexml_load_file('books.xml');
-          echo $books->book[0]->categories->category[1];
-```
-
+  ```php
+  $books = simplexml_load_file('books.xml');
+  echo $books->book[0]->categories->category[1];
+  ```
 - [ ]
-
-```php
-          $books = SimpleXMLElement('books.xml');
-          echo $books->book[0]->categories->category[1];
-```
-
+  ```php
+  $books = SimpleXMLElement('books.xml');
+  echo $books->book[0]->categories->category[1];
+  ```
 - [ ]
-
-```php
-          $books = SimpleXML('books.xml');
-          echo $books->book[0]->categories->category[1];
-```
+  ```php
+  $books = SimpleXML('books.xml');
+  echo $books->book[0]->categories->category[1];
+  ```
 
 ##### Q46. When it comes to the value of a variable, what is the difference between NULL and empty?
 
@@ -654,4 +649,330 @@ isset($_POST['submit'])
 - [ ] 1
 - [ ] 123
 
-**Note:** `Prints 13, on PHP Version 7.3.28`
+##### Q57. When should this php script be used?
+
+```php
+$secret_word = 'if i ate spinach';
+setcookie('login', $_REQUEST['username']. ','. md5($_REQUEST['username'].$secret_word));
+```
+
+- [ ] when a user goes to pay for an item online
+- [ ] when items are placed in a cart
+- [ ] at first registration
+- [x] at every login, for security
+
+##### Q58. A PHP "variable variable" takes the value of a variable and treats that as the name of a variable. For example, if `$var` is a variable then `$$var` is a variable variable whose name is the value of `$var`. Which script produces the output below, using variable variables?
+
+```php
+Cat
+Dog
+Dog
+```
+
+- [ ] ```php
+      $name = "Cat";
+      $name = "Dog";
+      echo $name . "<br/>";
+      echo $$name . "<br/>";
+      echo $Dog;
+      ```
+- [ ] ```php
+      $name = "Cat";
+      $$name = "Dog";
+      echo $name . "<br/>";
+      echo $$name . "<br/>";
+      echo $Dog;
+      ```
+- [x] ```php
+      $name = "Cat";
+      $$name = "Dog";
+      echo $name . "<br/>";
+      echo $$name . "<br/>";
+      echo $Cat;
+      ```
+- [ ] ```php
+      $name = "Cat";
+      $$name = "Dog";
+      echo $name . "<br/>";
+      echo $name . "<br/>";
+      echo $Cat;
+      ```
+
+##### Q59. Imagine a web application, built following a MVC architecture, that contains a quiz and a button to score it, When the user presses the Score button, which component should handle the request?
+
+- [ ] router
+- [x] controller
+- [ ] model
+- [ ] view
+
+##### Q60. Which script might be used to continue a user's search for music, across different webpages?
+
+- [ ] ```php
+        1 <?php
+        2 start_session();
+        3 $music = $_SESSION['music'];
+        4 ?>
+      ```
+- [ ] ```php
+        1 <?php
+        2    session_start();
+        3    $music = $SESSION['music'];
+        4 ?>
+      ```
+- [ ] ```php
+        1 <?php
+        2   start_session();
+        3   $music =$session['music'];
+        4 ?>
+      ```
+- [x] ```php
+        1 <?php
+        2  session_start();
+        3  $music = $_SESSION['music'];
+        4 ?>
+      ```
+
+##### Q61. Which PHP script finds the earliest and latest dates from an array?
+
+- [x] ```php
+        1 <?php
+        2 $dates = array('2018-02-01', '2017-02-02', '2015-02-03');
+        3 echo "Latest Date: ". max($dates)."\n";
+        4 echo "Earliest Date: ". min($dates)."\n";
+        5 ?>
+      ```
+- [ ] ```php
+        1 <?php
+        2 $dates = array('2018-02-01', '2017-02-02', '2015-02-03');
+        3 echo "Latest Date: ". min($dates)."\n";
+        4 echo "Earliest Date: ". max($dates)."\n";
+        5 ?>
+      ```
+- [ ] ```php
+        1 <?php
+        2 $dates = array('2018-02-01', '2017-02-02', '2015-02-03');
+        3 echo "Latest Date: ". ($dates)."\n";
+        4 echo "Earliest Date: ". ($dates)."\n";
+        5 ?>
+      ```
+- [ ] ```php
+        1 <?php
+        2 $dates = array('2018-02-01', '2017-02-02', '2015-02-03');
+        3 echo "Latest Date: " max($dates)."\n";
+        4 echo "Earliest Date: " min($dates)."\n";
+        5 ?>
+      ```
+
+##### Q62. What is the resulting output of this for statement?
+
+```php
+1  $kilometers = 1;
+2 for (;;) {
+3    if ($kilometers > 5) break;
+4       echo "$kilometers kilometers = ".$kilometers*0.62140. " miles. <br />";
+5    $kilometers++;
+6  }
+```
+
+- [x] ```php
+        1 kilometers = 0.6214 miles.
+        2 kilometers = 1.2428 miles.
+        3 kilometers = 1.8642 miles.
+        4 kilometers = 2.4856 miles.
+        5 kilometers = 3.107 miles.
+      ```
+- [ ] ```php
+        1 kilometers = 0.6214 miles.
+        2 kilometers = 1.2428 miles.
+        3 kilometers = 1.8642 miles
+        4 kilometers = 2.4856 miles.
+        5 kilometers = 3.107 miles.
+        6 kilometers = 3.7284 miles.
+      ```
+- [ ] ```php
+        2 kilometers = 1.2428 miles.
+        3 kilometers = 1.8642 miles.
+        4 kilometers = 2.4856 miles.
+        5 kilometers = 3.107 miles.
+      ```
+- [ ] FATAL ERROR syntax error, unexpected ')', expecting ';' on line number 2
+
+##### Q63. In PHP 7, What is the correct way to import multiple classes from namespace in a single declaration ?!
+
+- [x] use myApp\myNamespace\{ClassA, ClassB, ClassC};
+- [ ] use myApp\myNamespace\ClassA, ClassB, ClassC;
+- [ ] use myApp\myNamespace\[ClassA, ClassB, ClassC];
+- [ ] use myApp\myNamespace\(ClassA, ClassB, ClassC);
+
+##### Q64.Which is the most complete list of data types that PHP supports?
+
+- [x] string, integer, float, boolean, array, object, NULL, resource
+- [ ] string, integer, boolean, array, object, NULL, resource
+- [ ] string, integer, float, array, object, NULL, resource
+- [ ] string, integer, float, boolean, array, object, NULL
+
+[reference](https://www.w3schools.com/php/php_datatypes.asp)
+
+##### Q65. What type of computer language is PHP?
+
+- [x] server-side scripting language
+- [ ] compiled language
+- [ ] machine language
+- [ ] algorithmic language
+
+[reference](https://www.quora.com/Which-programming-language-is-used-to-create-PHP)
+
+##### Q66.Which superglobal variable holds information about headers, paths, and script locations?
+
+- [x] `$_SERVER`
+- [ ] `$SERVER_VARIABLES`
+- [ ] `$_ENV`
+- [ ] `$GLOBALS`
+
+[reference](http://www-db.deis.unibo.it/courses/TW/DOCS/w3schools/php/php_superglobals.asp.html)
+
+#### Q67. Describe what happens if you run this code in a testing environment:
+
+`1 $capitals = ['UK' => 'London', 'France' => 'Paris'];`
+`2 echo "$capitals['france'] is the capital of France.";`
+
+- [ ] It displays: "Paris is the capital of France."
+- [ ] It displays: " is the capital of France."
+- [ ] It triggers a syntax error because the array keys on line 1 are in quotes.
+- [x] It triggers a syntax error because the array key on line 2 is in quotes.
+
+**_Also, 'france' key must be capitalized!_**
+
+#### Q68. DRY (Don't Repeat Yourself) is a principle of software development aimed at reducing repetition of software patterns. Which choice is not a way to write DRYer code with PHP?
+
+- [ ] inheritance
+- [ ] classes
+- [x] namespacing
+- [ ] dependency injection
+
+#### Q69. Which code will return the IP address of the client?
+
+- [ ] `$HTTP_SERVER_VARS("REMOTE_IP")`
+- [x] `$_SESSION["REMOTE_ADDR"];`
+- [ ] `$_SERVER["HTTP_X_FORWARDED_FOR"]`
+- [x] `getenv("REMOTE_ADDR")`
+
+**_Both 2 and 4 are correct!_**
+
+#### Q70. Your site must allow uploading of large files. What might you need to do?
+
+- [ ] Make sure the user has the proper permissions.
+- [ ] Keep a count of upload file sizes and log them.
+- [x] Change the `upload_max_filesize` configuration parameter.
+- [ ] Be sure to use chunked transfer encoding.
+
+#### Q71. What is the output of this script?
+
+`1 $my_text = 'The quick grey [squirrel].';`
+`2 preg_match('#\[(.*?)\]#', $my_text, $match);`
+`3 print $match[1]."\n";`
+
+- [x] squirrel
+- [ ] The quick grey [squirrel].
+- [ ] [squirrel]
+- [ ] The quick grey squirrel.
+
+#### Q72. What is the output of this script?
+
+`$fruits = ['apple', 'orange', 'pear', 'mango', 'papaya'];`
+`$i = 0;`
+`echo $fruits[$i+=3];`
+
+- [x] mango
+- [ ] apple
+- [ ] a parse error
+- [ ] pear
+
+#### Q73. What are some of the main types of errors in PHP?
+
+- [x] notices, warnings, fatal
+- [ ] runtime, logical, compile
+- [ ] semantic, logical, syntax
+- [ ] warnings, syntax, compile
+
+#### Q74. What is the correct way to include the file gravy.php in the middle of HTML code?
+
+- [ ] `<!-- include file="gravy.php"; -->`
+- [ ] `<?php include gravy.php; ?>`
+- [x] `<?php include "gravy.php"; ?>`
+- [ ] `<?php include file="gravy.php"; ?>`
+
+#### Q75. Which two functions can sanitize text and validate text formats?
+
+- [ ] `session_start()` and `filter_input()`
+- [x] `filter_var()` and `filter_input()`
+- [ ] `preg_match()` and `strstr()`
+
+#### Q76. Why is it not recommended to make all of a class's variables public?
+
+- [ ] Doing so makes your code tightly coupled.
+- [ ] The attribute may be accessed only by the class that defines the member.
+- [x] You will have no control over which values the attribute can take. Any external code will be able to change it without any constraint.
+- [ ] You can then access the attribute only within the class itself, and by inheriting and parent classes.
+
+#### Q77. You want to use wildcard characters when searching for records in a MySQL/MariaDB database using a PDO prepared statement. Which code should you use?
+
+- [x] `$statement->bindValue(':name', '%' . $_GET['name'] . '%');`
+- [ ] `$statement->bindValue('%' . $_GET['name'] . '%', ':name');`
+- [ ] `$statement->bindParam(':name', '%' . $_GET['name'] . '%');`
+- [ ] `$statement->bindParam('%' . $_GET['name'] . '%', ':name');`
+
+#### Q78. Create an associative array using `$array1` as the keys and `$array2` as the values:
+
+`$array1 = ['country', 'capital', 'language'];`
+`$array2 = ['France', 'Paris', 'French'];`
+
+- [ ] `$array3 = array_merge($array1, $array2);`
+- [ ] `$array3 = array_union($array1, $array2);`
+- [ ] `$array3 = array_keys($array1, $array2);`
+- [x] `$array3 = array_combine($array1, $array2);`
+
+#### Q79. Assume that `$r` is 255, and `$g` and `$b` are both 0. What is the correct code to output `"#ff0000"`?
+
+- [ ] `printf('#%2x%2x%2x', 255, 0, 0);`
+- [ ] `printf('#%2X%2X%2X', $r, 0, 0);`
+- [ ] `printf('#%x%x%x', 255, 0, 0);`
+- [x] `printf('#%02x%02x%02x', 255, 0, 0);`
+
+#### Q80. You want to find out what day Twelfth Night falls on after Christmas 2018. Which code should you use?
+
+- [ ] `$xmas = new DateTime('Dec 25, 2018');`
+      `$twelfth_night = $xmas->add(new DateInterval('P12D'));`
+      `echo $twelfth_night->format('l');`
+- [ ] `$twelfth_night = strtotime('December 25, 2018 + 12 days');`
+      `echo date('d', $twelfth_night);`
+
+- [x] `$twelfth_night = strtotime('December 25, 2018 + 12 days');`
+      `echo strftime('%d', $twelfth_night);`
+
+- [ ] `$xmas = new DateTime('Dec 25, 2018');`
+      `$twelfth_night = $xmas->add(strtotime('12 days'));`
+      `echo $twelfth_night->format('D');`
+
+**_1 seems correct, but the question asks for "day", not day of the week. Twelfth Night is the "06" day of January, 2019._**
+
+#### Q81. Which loop displays all numbers from 1 to 10 inclusive?
+
+- [ ] `$i = 1;`
+      `while ($i < 10) {`
+      `echo $i++ . '<br/>';`
+      `}`
+
+- [ ] `$i = 0;`
+      `while ($i <= 10) {`
+      ` echo $i++ . '<br/>';`
+      `}`
+
+- [ ] `while ($i &lt;= 10) {`
+      ` echo ++$i . '<br/>';`
+      `}`
+
+- [x] `$i = 0;`
+      `while ($i < 10) {`
+      ` echo ++$i . '<br/>';`
+      `}`

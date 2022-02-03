@@ -277,8 +277,10 @@
 
 - [ ] `db.vehicle.distinct("category")`
 - [ ] `db.vehicle.unique("category")`
-- [x] `db.vehicle.distinct("category").count()`
-- [ ] `db.vehicle.distinct("category").length`
+- [ ] `db.vehicle.distinct("category").count()`
+- [x] `db.vehicle.distinct("category").length`
+
+Note: count() works with find(...) but length works with distinct
 
 #### Q41. From the MongoDB shell, how do you create a new document in the customers collection?
 
@@ -482,3 +484,51 @@
 - [ ] Create an single field index in descending order, and do a query for the word.
 - [x] Do a $text query.
 - [ ] Create a $regex on the fields, and do a $regex query.
+
+#### Q70. Which field is always included in a projection unless specifically excluded?
+
+- [ ] index
+- [ ] Name
+- [x] `_id`
+- [ ] row number
+
+[Reference](https://docs.mongodb.com/manual/reference/operator/aggregation/project/#definition)
+
+#### Q71. After installing MongoDB on your machine, what must you do before launching Mongo?
+
+- [ ] Create a user account.
+- [ ] Register online.
+- [ ] Create a data directory.
+- [x] Establish security credentials.
+      Source: [mongodb site](https://docs.mongodb.com/manual/tutorial/verify-mongodb-packages/#verify-integrity-of-mongodb-packages)
+
+#### Q72. How does a --jsonArray file need to be structured?
+
+- [x] as a properly formatted JSON array
+- [ ] as YAML
+- [ ] as plain text
+- [ ] as a BSON object
+      Source: [Section blog](https://www.section.io/engineering-education/handling-json-in-mongodb/)
+
+### Q73. From the MongoDB shell, how do you display all of a database's memory usage?
+
+- [ ] db.size()
+- [ ] db.info()
+- [ ] db.memory()
+- [ ] db.stats()
+
+### Q74. How do you create a new MongoDB user?
+
+- [x] db.createUser({})
+- [ ] db.insert({user: 1})
+- [ ] db.customers.newUser({})
+- [ ] db.newUser({})
+      Reference: [MongoDB documentation](https://docs.mongodb.com/manual/tutorial/create-users/)
+
+### Q75. What is the internal data structure of a MongoDB document?
+
+- [x] JSON (JavaScript Object Notation)
+- [ ] BSON (Binary JSON)
+- [ ] ORM (object relational mode)
+- [ ] MBF (MongoDB binary format)
+      Reference: [MongoDB documentation](https://docs.mongodb.com/guides/server/introduction/)

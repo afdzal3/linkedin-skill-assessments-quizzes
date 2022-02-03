@@ -23,13 +23,13 @@
 ["red", "blue", "green"]
 ```
 
-- [x]
+- [_]
 
 ```json
 ["red", "blue", "green"]
 ```
 
-- [ ]
+- [X]
 
 ```json
 {
@@ -221,7 +221,7 @@
 - [ ] NaN
 - [x] null
 
-#### Q16. Which JavaScript method converts a Json to JavaScript value?
+#### Q16. Which JavaScript method converts JSON to a JavaScript value?
 
 - [x] JSON.parse()
 - [ ] JSON.stringify()
@@ -840,3 +840,65 @@ Note: None of the above options appear to be correct. A correct answer would be 
 - [ ] one
 - [ ] two
 - [ ] three
+
+#### Q79. In JSON, a set of brackets ([]) is used to denote **\_**, whereas curly braces ({}) denote **\_**.
+
+- [x] arrays; objects
+- [ ] objects; functions
+- [ ] arrays; functions
+- [ ] key/value pairs; arrays
+
+#### Q80. How does JSON represent truth, falsity and nullness?
+
+- [x] true, false, null
+- [ ] true, false
+- [ ] TRUE, FALSE, NULL
+- [ ] true, false, null
+
+### Q81. Which character _cannot_ be part of string data within JSON without additional formatting?
+
+- [ ] /
+- [x] "
+- [ ] :
+- [ ] \-
+
+### Q82. If an object key contains spaces, how can you access its value in JavaScript?
+
+- [ ] Remove spaces from the key before accessing the value.
+- [ ] Use dot notation to access the value.
+- [ ] Use object key index to access the value.
+- [x] Use bracket notation to access the value.
+
+### Q83. When parsing JSON, "caching" is a method used to \_.
+
+- [ ] remove duplicate data from a server
+- [x] temporarily store data for faster access
+- [ ] store excess information in chunks to be reviewed later
+- [ ] clog up a web browser with useless information
+
+### Q84. What is the only valid whitespace character within a string that does not require an escape character?
+
+- [ ] line break
+- [x] space
+- [ ] tab
+- [ ] return
+
+### Q85. What technique can you use to safely encode very large numbers?
+
+- [x] Store the number as a string
+- [ ] Convert the number into an exponent.
+- [ ] Round the number to the nearest 10-digit number.
+- [ ] Split the number into smaller parts.
+
+### Q86. Which code is a valid JSON equivalent of the key/value pair shown that also preserves the data type?
+
+```json
+variance: -0.0823
+```
+
+- [ ] variance: "-0.0823"
+- [ ] variance: -0.0823
+- [x] "variance": "-0.0823"
+- [ ] "variance": "\-0.0823"
+
+[Reference data types in json](https://www.w3schools.com/js/js_json_datatypes.asp)

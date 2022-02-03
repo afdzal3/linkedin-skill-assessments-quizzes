@@ -7,12 +7,22 @@
 - [ ] Abstract classes must inherit from concrete classes.
 - [x] An abstract class exists only so that other "concrete" classes can inherit from the abstract class.
 
+[reference](https://www.geeksforgeeks.org/abstract-classes-in-python/)
+
 #### Q2. What happens when you use the build-in function `any()` on a list?
 
 - [ ] The `any()` function will randomly return any item from the list.
 - [x] The `any()` function returns True if any item in the list evaluates to True. Otherwise, it returns False.
 - [ ] The `any()` function takes as arguments the list to check inside, and the item to check for. If "any" of the items in the list match the item to check for, the function returns True.
 - [ ] The `any()` function returns a Boolean value that answers the question "Are there any items in this list?"
+
+**example**
+
+```python
+if any([True, False, False, False]) == True:
+    print('Yes, there is True')
+>>> Yes, there is True
+```
 
 #### Q3. What data structure does a binary tree degenerate to if it isn't balanced properly?
 
@@ -28,12 +38,17 @@
 - [x] Static methods serve mostly as utility methods or helper methods, since they can't access or modify a class's state.
 - [ ] Static methods can access and modify the state of a class or an instance of a class.
 
+[reference](https://www.geeksforgeeks.org/class-method-vs-static-method-python)
+
 #### Q5. What are attributes?
 
 - [ ] Attributes are long-form version of an `if/else` statement, used when testing for equality between objects.
 - [x] Attributes are a way to hold data or describe a state for a class or an instance of a class.
 - [ ] Attributes are strings that describe characteristics of a class.
 - [ ] Function arguments are called "attributes" in the context of class methods and instance methods.
+
+**Explanation**
+Attributes defined under the class, arguments goes under the functions. arguments usually refer as parameter, whereas attributes are the constructor of the class or an instance of a class.
 
 #### Q6. What is the term to describe this code?
 
@@ -50,6 +65,15 @@
 - [ ] `pop(my_list)`
 - [ ] `del(my_list)`
 - [x] `.pop()` method
+
+**example**
+
+```python
+my_list = [1,2,3]
+my_list.pop(0)
+my_list
+>>>[2,3]
+```
 
 #### Q8. What is one of the most common use of Python's sys library?
 
@@ -132,6 +156,8 @@ def sum(a, b):
     return a + b
 ```
 
+**explanation** - use ''' to start the doc and add output of the cell after >>>
+
 #### Q12. What built-in Python data type is commonly used to represent a stack?
 
 - [ ] `set`
@@ -156,8 +182,8 @@ return list(enumerate(college_years, 2019))
 #### Q14. How does `defaultdict` work?
 
 - [ ] `defaultdict` will automatically create a dictionary for you that has keys which are the integers 0-10.
-- [ ] `defaultdict` forces a dictionary to only accept keys that are of the types specified when you created the `defaultdict` (such as string or integers).
-- [x] If you try to access a key in a dictionary that doesn't exist, `defaultdict` will create a new key for you instead of throwing a `KeyError`.
+- [ ] `defaultdict` forces a dictionary to only accept keys that are of the data type specified when you created the `defaultdict` (such as strings or integers).
+- [x] If you try to read from a `defaultdict` with a nonexistent key, a new default key-value pair will be created for you instead of throwing a `KeyError`.
 - [ ] `defaultdict` stores a copy of a dictionary in memory that you can default to if the original gets unintentionally modified.
 
 #### Q15. What is the correct syntax for defining a class called "Game", if it inherits from a parent class called "LogicGame"?
@@ -167,6 +193,8 @@ return list(enumerate(college_years, 2019))
 - [x] `class Game(LogicGame): pass`
 - [ ] `def Game.LogicGame(): pass`
 
+_Duplicate of question 10._
+
 #### Q16. What is the purpose of the "self" keyword when defining or calling instance methods?
 
 - [ ] `self` means that no other arguments are required to be passed into the method.
@@ -174,12 +202,26 @@ return list(enumerate(college_years, 2019))
 - [x] `self` refers to the instance whose method was called.
 - [ ] `self` refers to the class that was inherited from to create the object using `self`.
 
+**Simple example**
+
+```python
+class my_secrets:
+    def __init__(self, password):
+        self.password = password
+        pass
+instance = my_secrets('1234')
+instance.password
+>>>'1234'
+```
+
 #### Q17. Which of these is NOT a characteristic of namedtuples?
 
 - [ ] You can assign a name to each of the `namedtuple` members and refer to them that way, similarly to how you would access keys in `dictionary`.
 - [ ] Each member of a namedtuple object can be indexed to directly, just like in a regular `tuple`.
 - [ ] `namedtuples` are just as memory efficient as regular `tuples`.
 - [x] No import is needed to use `namedtuples` because they are available in the standard library.
+
+**We need to import it using `from collections import namedtuple` **
 
 #### Q18. What is an instance method?
 
@@ -284,6 +326,16 @@ Also see Question 85 for the same question with different answers.
 - [x] It applies a function to each item in an iterable and returns the value of that function.
 - [ ] It converts a complex value type into simpler value types.
 - [ ] It creates a mapping between two different elements of different iterables.
+
+**Explanation:** - The synax for `map()` function is `list(map(function,iterable)`. the simple area finder using map would be like this
+
+```python
+import math
+radius = [1,2,3]
+area = list(map(lambda x: round(math.pi*(x**2), 2), radius))
+area
+>>> [3.14, 12.57, 28.27]
+```
 
 #### Q25. If you don't explicitly return a value from a function, what happens?
 
@@ -402,6 +454,17 @@ return output
 - [ ] The `all()` function returns True if all the items in the list can be converted to strings. Otherwise, it returns False.
 - [ ] The `all()` function will return all the values in the list.
 - [x] The `all()` function returns True if all items in the list evaluate to True. Otherwise, it returns False.
+
+**Explaination** - `all()` returns true if all in the list are True, see example below
+
+```python
+test = [True,False,False,False]
+if all(test) is True:
+    print('Yeah all are True')
+else:
+    print('There is an imposter')
+>>> There is an imposter
+```
 
 #### Q33. What is the correct syntax for calling an instance method on a class named Game?
 
@@ -566,6 +629,8 @@ def sum(a, b):
     return a + b
 ```
 
+**Explanation:** Use """ to start and end the docstring and use >>> to represent the output. If you write this correctly you can also run the doctest using build-in doctest module
+
 #### Q40. Suppose a Game class inherits from two parent classes: BoardGame and LogicGame. Which statement is true about the methods of an object instantiated from the Game class?
 
 - [ ] When instantiating an object, the object doesn't inherit any of the parent class's methods.
@@ -579,6 +644,16 @@ def sum(a, b):
 - [ ] a generic object class with non-iterable named fields
 - [ ] a tuple subclass with non-iterable parameter fields
 - [x] a tuple subclass with iterable named fields
+
+**Example**
+
+```python
+import math
+radius = [1,2,3]
+area = list(map(lambda x: round(math.pi*(x**2), 2), radius))
+area
+>>> [3.14, 12.57, 28.27]
+```
 
 #### Q42. What symbol(s) do you use to assess equality between two elements?
 
@@ -611,12 +686,25 @@ fruit_info = {
 - [x] `True`
 - [ ] `None`
 
+**Explanation** - `!=` is equivalent to **not equal to** in python
+
 #### Q45. What does a class's `init()` method do?
 
 - [ ] The `__init__` method makes classes aware of each other if more than one class is defined in a single code file.
 - [ ] The`__init__` method is included to preserve backwards compatibility from Python 3 to Python 2, but no longer needs to be used in Python 3.
 - [x] The `__init__` method is a constructor method that is called automatically whenever a new object is created from a class. It sets the initial state of a new object.
 - [ ] The `__init__` method initializes any imports you may have included at the top of your file.
+
+**Example:**
+
+```python
+class test:
+    def __init__(self):
+        print('I came here without your permission lol')
+        pass
+t1 = test()
+>>> 'I came here without your permission lol'
+```
 
 #### Q46. What is meant by the phrase "space complexity"?
 
@@ -648,6 +736,8 @@ fruit_info = {
 - [ ] `self` means that no other arguments are required to be passed into the method.
 - [x] `self` refers to the instance whose method was called.
 
+**Explanation:** - Try running the example of the Q45 without passing `self` argument inside the `__init__`, you'll understand the reason. You'll get the error like this `__init__() takes 0 positional arguments but 1 was given`, this means that something is going inside even if haven't specified, which is instance itself.
+
 #### Q50. What statement about the class methods is true?
 
 - [ ] A class method is a regular function that belongs to a class, but it must return None.
@@ -669,7 +759,7 @@ fruit_info = {
 - [ ] `func getMaxNum(list_of_nums): # body of function goes here`
 - [x] `def get_max_num(list_of_nums): # body of function goes here`
 
-[explanation](https://www.python.org/dev/peps/pep-0008/)
+[explanation for 52 & 53](https://www.python.org/dev/peps/pep-0008/)
 
 #### Q53. According to the PEP 8 coding style guidelines, how should constant values be named in Python?
 
@@ -685,12 +775,14 @@ fruit_info = {
 - [x] A deque adds items at either or both ends, and remove items at either or both ends.
 - [ ] A deque adds items only to the top, but remove from either or both sides.
 
+**Explanation** - `deque` is used to create block chanin and in that there is _first in first out_ approch, which means the last element to enter will be the first to leave.
+
 #### Q55. What is the correct syntax for creating a variable that is bound to a set?
 
-- [x] `myset = {0, 'apple', 3.5}`
-- [ ] `myset = to_set(0, 'apple', 3.5)`
-- [ ] `myset = (0, 'apple', 3.5).to_set()`
-- [ ] `myset = (0, 'apple', 3.5).set()`
+- [x] `my_set = {0, 'apple', 3.5}`
+- [ ] `my_set = to_set(0, 'apple', 3.5)`
+- [ ] `my_set = (0, 'apple', 3.5).to_set()`
+- [ ] `my_set = (0, 'apple', 3.5).set()`
 
 #### Q56. What is the correct syntax for defining an `__init__()` method that takes no parameters?
 
@@ -815,6 +907,8 @@ def calculate_sales_tax(subtotal):
 - [ ] a stacks adds items to the top and removes items from anywhere in the stack.
 - [ ] a stacks adds items to either end and removes items from either end.
 
+**Explanation** Stack uses the _last in first out_ approach
+
 #### Q66. What is a base case in a recursive function?
 
 - [x] A base case is the condition that allows the algorithm to stop recursing. It is usually a problem that is small enough to solve directly.
@@ -840,10 +934,12 @@ def calculate_sales_tax(subtotal):
 
 #### Q69. What is the correct way to run all the doctests in a given file from the command line?
 
-- [ ] python3 -m doctest <_filename_>
-- [x] python3 <_filename_>
+- [x] python3 -m doctest <_filename_>
+- [ ] python3 <_filename_>
 - [ ] python3 <_filename_> rundoctests
 - [ ] python3 doctest
+
+[tutorial video](https://www.youtube.com/watch?v=P8qm0VAbbww&t=180s)
 
 #### Q70. What is a lambda function ?
 
@@ -930,6 +1026,10 @@ def self.get_next_card(self):
 - [ ] `// This is a comment`
 
 #### Q78. What is the correct syntax for replacing the string apple in the list with the string orange?
+
+```
+my_list = ['kiwi', 'apple', 'banana']
+```
 
 - [ ] orange = my_list[1]
 - [x] my_list[1] = 'orange'
@@ -1027,6 +1127,15 @@ Updated version of Question 14.
 - [x] when you want some code to continue running as long as some condition is true
 - [ ] when you need to run two or more chunks of code at once within the same file
 
+**Simple Example**
+
+```python
+i = 1
+while i<6:
+    print('Countdown:',i)
+    i = i + 1
+```
+
 #### Q85. What is the correct syntax for defining an `__init__()` method that sets instance-specific attributes upon creation of a new class instance?
 
 - [ ]
@@ -1063,7 +1172,6 @@ def __init__(attr1, attr2):
 
 **Explanation**: When instantiating a new object from a given class, the `__init__()` method will take both `attr1` and `attr2`, and set its values to their corresponding object attribute, that's why the need of using `self.attr1 = attr1` instead of `attr1 = attr1`.
 
-
 #### Q86. What would this recursive function print if it is called with no parameters?
 
 ```python
@@ -1072,7 +1180,7 @@ def count_recursive(n=1):
         return
     print(n)
 
-count_recursive(n + 1)
+    count_recursive(n + 1)
 ```
 
 - [ ]
@@ -1112,3 +1220,388 @@ count_recursive(n + 1)
 2
 3
 ```
+
+#### Q87. In Python, when using sets, you use **_ to calculate the intersection between two sets and _** to calculate the union.
+
+- [ ] `Intersect;union`
+- [ ] |; &
+- [x] &; |
+- [ ] &&; ||
+
+#### Q88. What will this code fragment return?
+
+```python
+import numpy as np
+np.ones([1,2,3,4,5])
+```
+
+- [ ] It returns a 5x5 matric; each row will have the values 1,2,3,4,5.
+- [ ] It returns an array with the values 1,2,3,4,5
+- [ ] It returns five different square matrices filled with ones. The first is 1x1, the second 2x2, and so on to 5x5
+- [x] It returns a 5-dimensional array of size 1x2x3x4x5 filled with 1s.
+
+[Reference](https://www.geeksforgeeks.org/numpy-ones-python/)
+
+#### Q89. You encounter a FileNotFoundException while using just the filename in the `open` function. What might be the easiest solution?
+
+- [ ] Make sure the file is on the system PATH
+- [ ] Create a symbolic link to allow better access to the file
+- [x] Copy the file to the same directory as where the script is running from
+- [ ] Add the path to the file to the PYTHONPATH environment variable
+
+#### Q90. what will this command return?
+
+```python
+{x for x in range(100) if x%3 == 0}
+```
+
+- [x] a set of all the multiples of 3 less then 100
+- [ ] a set of all the number from 0 to 100 multiplied by 3
+- [ ] a list of all the multiples of 3 less then 100
+- [ ] a set of all the multiples of 3 less then 100 excluding 0
+
+#### Q91. What does the // operator in Python 3 allow you to do?
+
+- [x] Perform integer division
+- [ ] Perform operations on exponents
+- [ ] Find the remainder of a division operation
+- [ ] Perform floating point division
+
+#### Q92. This code provides the \_ of the list of numbers
+
+```python
+num_list = [21,13,19,3,11,5,18]
+num_list.sort()
+num_list[len(num_list)//2]
+```
+
+- [ ] mean
+- [ ] mode
+- [x] median
+- [ ] average
+
+#### Q93. Which statement about the class methods is true?
+
+- [ ] A class method holds all of the data for a particular class.
+- [x] A class method can modify the state of the class, but it cannot directly modify the state of an instance that inherits from that class.
+- [ ] A class method is a regular function that belongs to a class, but it must return None
+- [ ] A class method is similar to a regular function, but a class method does not take any arguments.
+
+_Duplicate version of Question 50._
+
+#### Q94. What file is imported to use dates in python?
+
+- [x] datetime
+- [ ] dateday
+- [ ] daytime
+- [ ] timedate
+
+#### Q95. What is the correct syntax for defining a class called Game?
+
+- [ ] def Game(): pass
+- [ ] def Game: pass
+- [x] class Game: pass
+- [ ] class Game(): pass
+
+[reference here](https://docs.python.org/3/tutorial/classes.html)
+
+#### Q96. What does a class's init() method do?
+
+- [ ] The **init** method makes classes aware of each other if more than one class is defined in a single code file.
+- [ ] The **init** method is included to preserve backward compatibility from Python 3 to Python 2, but no longer needs to be used in Python 3.
+- [x] The **init** method is a constructor method that is called automatically whenever a new object is created from a class. It sets the initial state of a new object.
+- [ ] The **init** method initializes any imports you may have included at the top of your file.
+
+[reference here](https://stackoverflow.com/questions/625083/what-init-and-self-do-in-python)
+
+#### Q97. What is the correct syntax for calling an instance method on a class named Game?
+
+- [ ] my_game = Game(self) self.my_game.roll_dice()
+- [x] my_game = Game() self.my_game.roll_dice()
+- [ ] my_game = Game() my_game.roll_dice()
+- [ ] my_game = Game(self) my_game.roll_dice(self)
+
+#### Q98. What is the output of this code? (NumPy has been imported as np.)?
+
+```
+a = np.array([1,2,3,4])
+print(a[[False, True, False, False]])
+```
+
+- [ ] {0,2}
+- [x] [2]
+- [ ] {2}
+- [ ] [0,2,0,0]
+
+#### Q99. Suppose you have a string variable defined as y=”stuff;thing;junk;”. What would be the output from this code?
+
+```
+Z = y.split(‘;’)
+len(z)
+```
+
+- [ ] 17
+- [x] 4
+- [ ] 0
+- [ ] 3
+
+explanation:
+
+```
+y=”stuff;thing;junk”
+	len(z) ==> 3
+
+y=”stuff;thing;junk;”
+	len(z) ==> 4
+```
+
+#### Q100. What is the output of this code?
+
+```
+num_list = [1,2,3,4,5]
+num_list.remove(2)
+print(num_list)
+```
+
+- [ ] [1,2,4,5]
+- [x] [1,3,4,5]
+- [ ] [3,4,5]
+- [ ] [1,2,3]
+
+explanation:
+
+```
+num_list = [1,2,3,4,5]
+
+num_list.pop(2)
+	[1,2,4,5]
+
+num_list.remove(2)
+	[1,3,4,5]
+```
+
+#### Q101. What is the correct syntax for creating an instance method?
+
+- [ ] def get_next_card(): # method body goes here
+- [ ] def self.get_next_card(): # method body goes here
+- [x] def get_next_card(self): # method body goes here
+- [ ] def self.get_next_card(self): # method body goes here
+
+#### Q102. Which mode is not a valid way to access a file from within a Python script?
+
+- [ ] write('w')
+- [ ] scan('s')
+- [x] append('a')
+- [ ] read('r')
+
+#### Q103. Which command will create a list from 10 down to 1? Example:
+
+[10,9,8,7,6,5,4,3,2,1]
+
+- [ ] reversed(list(range(1,11)))
+- [ ] list(reversed(range(1,10)))
+- [ ] list(range(10,1,-1))
+- [x] list(reversed(range(1,11)))
+
+#### Q104. Which syntax correctly creates a variable that is bound to a tuple?
+
+- [ ] my_tuple = [2, 'apple', 3.5]
+- [ ] my_tuple = [2, 'apple', 3.5].tuple()
+- [ ] my_tuple = tup(2, 'apple', 3.5)
+- [x] my_tuple = (2, 'apple', 3.5)
+
+[Reference](https://www.w3schools.com/python/python_tuples.asp)
+
+#### Q105. Which fragment of code will print exactly the same output as this fragment?
+
+```
+import math
+print(math.pow(2,10)) # prints 2 elevated to the 10th power
+```
+
+- [ ]
+
+```
+print(2^10)
+```
+
+- [x]
+
+```
+print(2**10)
+```
+
+- [ ]
+
+```
+y = [x*2 for x in range(1,10)]
+print(y)
+```
+
+- [ ]
+
+```
+y = 1
+for i in range(1,10):
+    y = y * 2
+print(y)
+```
+
+[Reference](https://www.digitalocean.com/community/tutorials/how-to-do-math-in-python-3-with-operators#:~:text=The%20**%20operator%20in%20Python,multiplied%20by%20itself%203%20times.)
+
+#### Q106. Elements surrounded by [] are **\_**, {} are **\_**, and () are **\_**.
+
+- [ ] sets only; lists or dictionaries; tuples
+- [ ] lists; sets only; tuples
+- [ ] tuples; sets or lists; dictionaries
+- [x] lists; dictionaries or sets; tuples
+
+[Reference](https://www.geeksforgeeks.org/differences-and-applications-of-list-tuple-set-and-dictionary-in-python/)
+
+#### Q107. What is the output of this code? (NumPy has been imported as np.)
+
+```
+table = np.array([
+    [1,3],
+    [2,4]])
+print(table.max(axis=1))
+```
+
+- [ ] `[2, 4]`
+- [x] `[3, 4]`
+- [ ] `[4]`
+- [ ] `[1,2]`
+
+[Reference](https://colab.research.google.com/drive/1PRGf7Wgcr_gQk7snnxxuc5rL9O1ky9Xg?usp=sharing)
+
+#### Q108. What will this code print?
+
+```
+number = 3
+print (f"The number is {number}")
+```
+
+- [x] `The number is 3`
+- [ ] `the number is 3`
+- [ ] `THE NUMBER IS 3`
+- [ ] It throws a TypeError because the integer must be cast to a string.
+
+[Reference](https://colab.research.google.com/drive/1PRGf7Wgcr_gQk7snnxxuc5rL9O1ky9Xg?usp=sharing)
+
+#### Q109. Which syntax correctly creates a variable that is bound to a tuple?
+
+- [ ] `my_tuple tup(2, 'apple', 3.5) %D`
+- [ ] `my_tuple [2, 'apple', 3.5].tuple() %D`
+- [x] `my_tuple = (2, 'apple', 3.5)`
+- [ ] `my_tuple = [2, 'apple', 3.5]`
+
+[Reference](https://beginnersbook.com/2018/02/python-tuple/)
+
+#### Q110. Which mode is _not_ a valid way to access a file from within a Python script?
+
+- [ ] write('w')
+- [ ] scan('s')
+- [x] append('a')
+- [ ] read('r')
+
+[Reference](https://www.guru99.com/reading-and-writing-files-in-python.html)
+
+[Reference](https://www.w3schools.com/python/ref_list_append.asp)
+
+#### Q111. Which command will create a list from 10 down to 1? Example:
+
+```
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+```
+
+- [ ] reversed(list(range(1,11)))
+- [ ] list(reversed(range(1,10)))
+- [ ] list(range(10, 1, -1))
+- [x] list(reversed(range(1,11)))
+
+[Reference](https://www.programiz.com/python-programming/methods/built-in/reversed)
+
+#### Q112. Suppose you have a variable named `vector` of type `np.array` with 10.000 elements. How can you turn `vector` into a variable named `matrix` with dimensions 100x100?: _[ANSWER NEEDED]_
+
+- [ ] matrix = matrix(vector,100,100)
+- [ ] matrix = vector.to_matrix(100,100)
+- [ ] matrix = (vector.shape = (100,100))
+- [x] matrix = vector.reshape(100,100)
+
+**example**
+
+```python
+import numpy as np
+vector = np.random.rand(10000)
+matrix = a.reshape(100, 100)
+print(matrix.shape)
+(100, 100)
+```
+
+#### Q113. NumPy allows you to multiply two arrays without a for loop. This is an example of \_.
+
+- [x] vectorization
+- [ ] attributions
+- [ ] accelaration
+- [ ] functional programming
+
+#### Q114. What built-in Python data type can be used as a hash table?
+
+- [ ] `set`
+- [ ] `list`
+- [ ] `tuple`
+- [x] `dictionary`
+
+#### Q115. Which Python function allows you to execute Linux shell commands in Python?
+
+- [ ] `sys.exc_info()`
+- [x] `os.system()`
+- [ ] `os.getcwd()`
+- [ ] `sys.executable`
+
+#### Q116. Suppose you have the following code snippet and want to extract a list with only the letters. Which fragment of code will _not_ achieve that goal?
+
+```
+my_dictionary = {
+    'A': 1,
+    'B': 2,
+    'C': 3,
+    'D': 4,
+    'E': 5
+}
+```
+
+- [x]
+
+```
+letters = []
+
+for letter in my_dictionary.values():
+    letters.append(letter)
+```
+
+- [ ]
+
+```
+letters = my_dictionary.keys()
+```
+
+- [ ]
+
+```
+letters = [letter for (letter, number) in my_dictionary.items()]
+```
+
+- [ ]
+
+```
+letters4 = list(my_dictionary)
+```
+**Explanation:** The first one (the correct option) returns the list of the values (the letters). The rest of the options return a list of the keys.
+
+#### Q117. THen an array is large, NumPy will not print the entire array when given the built-in `print` function. What function can you use within NumPy to force it to print the entire array?
+
+- [ ] `set_printparams`
+- [x] `set_printoptions`
+- [ ] `set_fullprint`
+- [ ] `setp_printwhole`

@@ -241,7 +241,8 @@ class Main {
 - [ ] It will not compile because of line 2.
 - [ ] "World!"
 
-**Explanation:** Non-static method message() cannot be referenced from a static context.
+**Explanation:** Compilation error at line 10 because of final methods cannot be overridden, and here message() is a final method,
+and also note that Non-static method message() cannot be referenced from a static context.
 
 #### Q13. Given this code, which command will output "2"?
 
@@ -391,6 +392,8 @@ public class Jedi {
 - [ ] new Jedi(name, species, false)
 - [x] this(name, species, false)
 - [ ] super(name, species, false)
+
+  **Note:** This code won't compile, possibly broken code sample.
 
 #### Q27. Which statement is **NOT** true?
 
@@ -785,7 +788,7 @@ public TheClass() {
 }
 ```
 
-**Explanation:** `final` class members are allowed to be assigned only in two places: declaration and constructor
+**Explanation:** `final` class members are allowed to be assigned only in three places: declaration, constructor or an instance-initializer block.
 
 #### Q52. How many times f will be printed?
 
@@ -948,7 +951,7 @@ try {
 - [ ] Hello World!
 - [ ] It will throw runtime exception
 
-#### Q64. What is not a java keyword
+#### Q64. Which is not a java keyword
 
 - [ ] finally
 - [ ] native
@@ -1237,24 +1240,6 @@ class Main {
 - [ ] "hello"
 - [ ] ????
 
-### 90. What code would you use in Constructor A to call Constructor B?
-
-```java
-public class Jedi {
-  /* Constructor A */
-  Jedi(String name, String species){}
-
-  /* Constructor B */
-  Jedi(String name, String species, boolean followsTheDarkSide){}
-  }
-```
-
-- [ ] Jedi(name, species, false)
-- [ ] new Jedi(name, species, false)
-- [x] this(name, species, false)
-- [ ] # super(name, species, false)
-  **Note:** This code won't compile, possibly broken code sample
-
 #### Q90. How would you use the TaxCalculator to determine the amount of tax on $50?
 
 ```java
@@ -1275,42 +1260,9 @@ class TaxCalculator {
 - [Reference](https://www.geeksforgeeks.org/static-methods-vs-instance-methods-java/)
 - [Code sample](https://replit.com/@mattheweller/EverlastingShadyBraces#TaxCalculator.java)
 
-#### Q91. What is the value of myCharacter after line 3 is run?
+#### Q91. <DUPLICATE of Q81>
 
-```java
-1: public class Main {
-2:   public static void main (String[] args) {
-3:     char myCharacter = "piper".chatAt(3);
-4:   }
-5: }
-```
-
-- [ ] p
-- [ ] i
-- [ ] r
-- [x] e
-
-#### Q92. What is the output of this code?
-
-```java
-class Main {
-    static int count = 0;
-    public static void main(String[] args) {
-      if(count < 3){
-          count++;
-          main(null);
-      }else{
-          return;
-      }
-      System.out.println("Hello World!");
-    }
-}
-```
-
-- [ ] it will run forever.
-- [x] it will print "Hello World!" three times.
-- [ ] it will not compile.
-- [ ] it will throw a runtime exception.
+#### Q92. <DUPLICATE of Q37>
 
 #### Q93. What is the output of this code?
 
@@ -1319,8 +1271,8 @@ class Main {
     public static void main(String[] args) {
       HashMap<String, Integer> pantry = new HashMap<>();
 
-      pantry.put(Apples", 3);
-      pantry.put("Oranges, 2);
+      pantry.put("Apples", 3);
+      pantry.put("Oranges", 2);
 
       int currentApples = pantry.get("Apples");
       pantry.put("Apples", currentApples + 4);
@@ -1338,6 +1290,413 @@ class Main {
 #### Q94. Which characteristic does not apply to instances of java.util.HashSet=
 
 - [ ] uses hashcode of objects when inserted
-- [x] contains unordred elements
+- [ ] contains unordred elements
 - [ ] contains unique elements
-- [ ] contains sorted elements
+- [x] contains sorted elements
+
+**Explanation**: HashSet makes no guarantees as to the iteration order of the set; in particular, it does not guarantee that the order will remain constant over time.
+
+[Reference](https://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html)
+
+#### Q95. What is the output?
+
+```java
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args)
+	{
+		PriorityQueue<Integer> queue = new PriorityQueue<>();
+		queue.add(4);
+		queue.add(3);
+		queue.add(2);
+		queue.add(1);
+
+		while (queue.isEmpty() == false) {
+			System.out.printf("%d", queue.remove());
+		}
+	}
+}
+```
+
+- [ ] 1 3 2 4
+- [ ] 4 2 3 1
+- [x] 1 2 3 4
+- [ ] 4 3 2 1
+
+#### Q96. What will this code print, assuming it is inside the main method of a class?
+
+`System.out.println("hello my friends".split(" ")[0]);`
+
+- [ ] my
+- [ ] hellomyfriends
+- [x] hello
+- [ ] friends
+
+#### Q97. You have an instance of type Map<String, Integer> named instruments containing the following key-value pairs: guitar=1200, cello=3000, and drum=2000. If you add the new key-value pair cello=4500 to the Map using the put method, how many elements do you have in the Map when you call instruments.size()?
+
+- [ ] 2
+- [ ] When calling the put method, Java will throw an exception
+- [ ] 4
+- [x] 3
+
+#### Q98. Which class acts as root class for Java Exception hierarchy?
+
+- [ ] Clonable
+- [x] Throwable
+- [ ] Object
+- [ ] Serializable
+
+#### Q99. <DUPLICATE of Q15>
+
+#### Q100. Which class does not implement the java.util.Collection interface?
+
+- [ ] java.util.Vector
+- [ ] java.util.ArrayList
+- [ ] java.util.HashSet
+- [x] java.util.HashMap
+
+**Explanation**: HashMap class implements Map interface.
+
+#### Q101. You have a variable of named `employees` of type `List<Employee>` containing multiple entries. The `Employee` type has a method `getName()` that returns te employee name. Which statement properly extracts a list of employee names?
+
+- [ ] `employees.collect(employee -> employee.getName());`
+- [ ] `employees.filter(Employee::getName).collect(Collectors.toUnmodifiableList());`
+- [x] `employees.stream().map(Employee::getName).collect(Collectors.toList());`
+- [ ] `employees.stream().collect((e) -> e.getName());`
+
+#### Q102. What is the correct return type for the `processFunction` method:
+
+```
+____ processFunction(Integer number, Function<Integer, String> lambda) {
+    return lambda.apply(number);
+}
+```
+
+- [ ] Function<Integer, String>
+- [ ] Integer
+- [x] String
+- [ ] Consumer
+
+#### Q103. This code does not compile. What needs to be changed so that it does?
+
+```
+public enum Direction {
+    EAST("E"),
+    WEST("W"),
+    NORTH("N"),
+    SOUTH("S");
+
+    private final String shortCode;
+
+    public String getShortCode() {
+        return shortCode;
+    }
+}
+```
+
+- [x] Add a constructor that accepts a `String` parameter and assigns it to the field `shortCode`.
+- [ ] Remove the `final` keyword for the field `shortCode`.
+- [ ] All enums need to be defined on a single line of code.
+- [ ] Add a setter method for the field `shortCode`.
+
+#### Q104. Which language feature ensures that objects implementing the `AutoCloseable` interface are closed when it completes?
+
+- [ ] try-catch-finally
+- [ ] try-finally-close
+- [x] try-with-resources
+- [ ] try-catch-close
+
+#### Q105. What code should go in line 3?
+
+```java
+class Main {
+    public static void main(String[] args) {
+
+        array[0] = new int[]{1, 2, 3};
+        array[1] = new int[]{4, 5, 6};
+        array[2] = new int[]{7, 8, 9};
+        for (int i = 0; i < 3; i++)
+            System.out.print(array[i][1]); //prints 258
+    }
+}
+```
+
+- [ ] `int[][] array = new int[][];`
+- [x] `int[][] array = new int[3][3];`
+- [ ] `int[][] array = new int[2][2];`
+- [ ] `int[][] array = [][];`
+
+#### Q106. Is this an example of method overloading or overriding?
+
+```java
+class Car {
+    public void accelerate() {}
+}
+class Lambo extends Car {
+    public void accelerate(int speedLimit) {}
+    public void accelerate() {}
+}
+```
+
+- [ ] neither
+- [x] both
+- [ ] overloading
+- [ ] overriding
+
+#### Q107. Which choice is the best data type for working with money in Java?
+
+- [ ] float
+- [ ] String
+- [ ] double
+- [x] BigDecimal
+
+#### Q108. Which statement about constructors is not ture?
+
+- [ ] A class can have multiple constructors with a different parameter list.
+- [ ] You can call another constructor with `this` or `super`.
+- [ ] A constructor does not define a return value.
+- [x] Every class must explicitly define a constructor without parameters.
+
+#### Q109. What language feature allows types to be parameters on classes, interfaces, and methods in order to reuse the same code for different data types?
+
+- [ ] Regular Expressions
+- [ ] Reflection
+- [x] Generics
+- [ ] Concurrency
+
+#### Q110. What will be printed?
+```java
+public class Berries{
+
+    String berry = "blue";
+
+    public static void main( String[] args ) {
+        new Berries().juicy( "straw" );
+    }
+    void juicy(String berry){
+        this.berry = "rasp";
+        System.out.println(berry + "berry");
+    }
+}
+```
+- [ ] raspberry
+- [x] strawberry
+- [ ] blueberry
+- [ ] rasp
+
+#### Q111. What is the value of `forestCount` after this code executes?
+
+```java
+Map<String, Integer> forestSpecies = new HashMap<>();
+
+forestSpecies.put("Amazon", 30000);
+forestSpecies.put("Congo", 10000);
+forestSpecies.put("Daintree", 15000);
+forestSpecies.put("Amazon", 40000);
+
+int forestCount = forestSpecies.size();
+```
+
+- [x] 3
+- [ ] 4
+- [ ] 2
+- [ ] When calling the put method, Java will throw an exception
+
+#### Q112. What is a problem with this code?
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+
+class Main {
+
+    public static void main( String[] args ) {
+        List<String> list = new ArrayList<String>( Arrays.asList( "a", "b", "c" ) );
+        for( String value :list ){
+            if( value.equals( "a" ) ) {
+                list.remove( value );
+            }
+        }
+        System.out.println(list); // outputs [b,c]
+    }
+}
+```
+
+- [ ] String should be compared using == method instead of equals.
+- [x] Modifying a collection while iterating through it can throw a ConcurrentModificationException.
+- [ ] The List interface does not allow an argument of type String to be passed to the remove method.
+- [ ] ArrayList does not implement the List interface.
+
+#### Q113. How do you convert this method into a lambda expression?
+
+```java
+public int square(int x){
+    return x * x;
+}
+```
+
+- [ ] `Function<Integer, Integer> squareLambda = (int x) -> { x * x };`
+- [ ] `Function<Integer, Integer> squareLambda = () -> { return x * x };`
+- [x] `Function<Integer, Integer> squareLambda = x -> x * x;`
+- [ ] `Function<Integer, Integer> squareLambda = x -> return x * x;`
+
+#### Q114. Which choice is a valid implementation of this interface?
+
+```java
+interface MyInterface {
+    int foo(int x);
+}
+```
+
+- [ ] A
+```java
+public class MyClass implements MyInterface {
+    // ....
+    public void foo(int x){
+        System.out.println(x);
+    }
+}
+```
+- [ ] B
+```java
+public class MyClass implements MyInterface {
+    // ....
+    public double foo(int x){
+        return x * 100;
+    }
+}
+```
+- [x] C
+```java
+public class MyClass implements MyInterface {
+    // ....
+    public int foo(int x){
+        return x * 100;
+    }
+}
+```
+- [ ] D
+```java
+public class MyClass implements MyInterface {
+    // ....
+    public int foo(){
+        return 100;
+    }
+}
+```
+
+#### Q115. What is the result of this program?
+
+```java
+interface Foo{
+    int x = 10;
+}
+
+public class Main{
+
+    public static void main( String[] args ) {
+        Foo.x = 20;
+        System.out.println(Foo.x);
+    }
+}
+```
+
+- [ ] 10
+- [ ] 20
+- [ ] null
+- [x] An error will occur when compiling.
+
+#### Q116. Which statement must be inserted on line 1 to print the value true?
+
+```
+1:
+2: Optional<String> opt = Optional.of(val);
+3: System.out.println(opt.isPresent());
+```
+
+- [ ] `Integer val = 15;`
+- [x] `String val = "Sam";`
+- [ ] `String val = null;`
+- [ ] `Optional<String> val = Optional.empty();`
+
+#### Q117. What will this code print, assuming it is inside the main method of a class?
+
+```java
+System.out.println(true && false || true);
+System.out.println(false || false && true);
+```
+
+- [ ] false </br> true
+- [ ] true </br> true
+- [x] true </br> false
+- [ ] false </br> false
+
+#### Q118. What will this code print?
+
+```java
+List<String> list1 = new ArrayList<>(); 
+list1.add( "One" ); 
+list1.add( "Two" ); 
+list1.add( "Three" ); 
+
+List<String> list2 = new ArrayList<>();
+list2.add( "Two" );
+        
+list1.remove( list2 ); 
+System.out.println(list1);
+```
+
+- [ ] `[Two]`
+- [ ] `[One, Two, Three]`
+- [x] `[One, Three]`
+- [ ] `Two`
+
+#### Q119. Which code checks whether the characters in two Strings,named `time` and `money`, are the same?
+
+- [ ] `if(time <> money){}`
+- [x] `if(time.equals(money)){}`
+- [ ] `if(time == money){}`
+- [ ] `if(time = money){}`
+
+#### Q120. An ______ is a serious issue thrown by the JVM that the JVM is unlikely to recover from. An ______ is an unexpected event that an application may be able to deal with in order to continue execution.
+
+- [ ] exception,assertion
+- [ ] AbnormalException, AccidentalException
+- [x] error, exception
+- [ ] exception, error
+
+#### Q121. Which keyword would not be allowed here?
+
+```java
+class Unicorn {
+    _____ Unicorn(){}
+}
+```
+
+- [x] static
+- [ ] protected
+- [ ] public
+- [ ] void
+
+#### Q122. Which OOP concept is this code an example of?
+
+```java
+List[] myLists = {
+    new ArrayList<>(),
+    new LinkedList<>(),
+    new Stack<>(),
+    new Vector<>(),
+};
+
+for (List list : myLists){
+    list.clear();
+}
+```
+
+- [ ] composition
+- [ ] generics
+- [ ] polymorphisem
+- [ ] encapsulation

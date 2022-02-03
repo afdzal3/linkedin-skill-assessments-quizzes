@@ -354,7 +354,7 @@
 
 #### Q40. Which acronym is used to describe the page a user sees after submitting a search?
 
-- [x] SERT (Search Engine Results Page)
+- [x] SERP (Search Engine Results Page)
 - [ ] INDX
 - [ ] PARS
 - [ ] SEM
@@ -490,3 +490,56 @@
 - [x] when creating a new subdomain
 
 **Explanation:** From article: [Types of redirects](https://moz.com/learn/seo/redirection)
+
+#### Q56. What would contribute to a low bounce rate?
+
+- [ ] Content does not match search intent.
+- [ ] Page returns 404 error.
+- [x] Content reflects search intent.
+- [ ] URL uses parameters.
+
+#### Q57. What should be as consistent as possible across the web when developing a local SEO strategy?
+
+- [ ] backlinks
+- [x] NAP
+- [ ] LRP
+- [ ] inbound links
+
+  [reference #1](https://support.google.com/business/answer/7091)
+
+  [reference #2](https://www.smartinsights.com/search-engine-optimisation-seo/how-to-adjust-your-nap-profile-for-local-seo/)
+
+#### Q58.A user enters a search \_ to retrieve results from a search engine?
+
+- [x] query
+- [ ] parser
+- [ ] bar
+- [ ] link
+
+#### Q.59 The search query "How to make donuts without yeast" is an example of what?
+
+- [ ] fresh keyword
+- [ ] operative keyword
+- [ ] short-tail keyword
+- [x] long-tail keyword
+
+#### Q.60 What tool enables companies to display extra information within the natural search results without the need of any structured data?
+
+- [ ] Google Input Tools
+- [ ] structured data testing tool
+- [ ] Google Tag Manager
+- [x] Google My Business
+
+#### Q.61 Your client is ready to start a blog. but has read that they should put the blog on a subdomain instead of subdirectory in order to create more external links to their website. How would you advise your client about this strategy?
+
+- [ ] Not only should the blog be on a subdomain, but each of the major navigation areas should be on separate subdomains in order to increase the number and value of the links into the primary domain.
+- [x] It is best to have the blog on a subdirectory and build links to primary domain.
+- [ ] It is an advisable choice as it will enable interlinking between the domains and increase the number of links.
+- [ ] The blog should be on a separate URL to avouud building too many links between the same domain or IP.
+
+#### Q.62 Blog author pages, each with only one sentence about the author, are at risk of being flagged as **\_** content.
+
+- [ ] non-indexable
+- [ ] irrelevant
+- [ ] biased
+- [x] thin
