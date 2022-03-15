@@ -173,7 +173,7 @@ h1 {
 - [ ] Font sizes are relative to the base font size of the operating system.
 - [x] Font sizes are relative to the root em unit used in the HTML element.
 
-#### Q21. Which HTML element represents either a scalar value within a known range a fractional value?
+#### Q21. Which HTML element represents either a scalar value within a known range OR a fractional value?
 
 - [x] `<meter>`
 - [ ] `<range>`
@@ -351,7 +351,7 @@ const user = {
 - [x] It will tell the browser that a connection will be made to another origin and to start getting ready as soon as possible.
 - [ ] It will tell the browser that a resource is needed, and that it should start getting fetched as soon as possible.
 
-[Reference (web.dev)](https://web.dev/preconnect-and-dns-prefetch/)
+[web.dev](https://web.dev/preconnect-and-dns-prefetch/)
 
 #### Q37. Which choice is _not_ a render blocking resource?
 
@@ -360,7 +360,7 @@ const user = {
 - [ ] CSS
 - [ ] JavaScript
 
-[Reference (blog.logrocket)](https://blog.logrocket.com/5-tricks-to-eliminate-render-blocking-resources/)
+[blog.logrocket](https://blog.logrocket.com/5-tricks-to-eliminate-render-blocking-resources/)
 
 #### Q38. Which choice does _not_ provide information on browser support for a particular CSS property?
 
@@ -568,3 +568,91 @@ console.log(currencies);
 - [ ] It is a script that runs to add vendor prefixes to modern CSS.
 
 [Source: Polyfill](https://developer.mozilla.org/en-US/docs/Glossary/Polyfill)
+
+#### Q60. Which choice is _not_ a JavaScript framework?
+
+- [ ] Angular
+- [x] Laravel
+- [ ] Vue
+- [ ] React
+
+[Source: Laravel](https://laravel.com/)
+
+#### Q61. What does setting `aria-live=polite` on a live region achieve?
+
+- [ ] The screen reader will not notify the user of changes to live regions.
+- [x] The screen reader will wait until there is a pause to announce changes.
+- [ ] The screen reader will announce all changes immediately.
+- [ ] The screen reader will use a polite voice when announcing changes.
+
+[Source: MDN Docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-live)
+
+#### Q62. Review the CSS below. What color would you expect the background color of the element with a class of .box to be?
+
+```css
+.box {
+  background-color: blue;
+  background: url(images/star.png) no-repeat left top;
+}
+```
+
+- [ ] black
+- [ ] blue
+- [x] transparent
+- [ ] white
+
+#### Q63. Which CSS property and value would correctly remove the bullets from a list item?
+
+- [ ] ```list-tem: none```
+- [ ] ```bullets: hidden```
+- [x] ```list-style-type: none```
+- [ ] ```list-bullet: none```
+
+#### Q64. Which code example would center `.box` inside `.container`?
+
+![A](images/Q64.png)
+
+```hmtl
+<div class="container">
+    <div class="box">what a lovely box, very centered
+    </div>
+</div>
+
+```
+
+- [ ] A
+  
+  ```css
+  .container { 
+    display: flex;
+    align-items: center;
+  }
+  ```
+
+- [x] B
+
+  ```css
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  ```
+  
+- [ ] C
+
+  ```css
+  .box {
+     align-items: center;
+     justify-content: center;
+  }
+  ```
+
+- [ ] D
+
+  ```css
+  .container {
+    display: flex;
+    align: center;
+  }
+  ```
